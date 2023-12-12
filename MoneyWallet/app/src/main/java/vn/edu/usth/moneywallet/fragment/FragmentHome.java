@@ -22,28 +22,6 @@ public class FragmentHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-        // Retrieve data from arguments
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            String email = bundle.getString("email");
-            String name = bundle.getString("name");
-            String pictureUrl = bundle.getString("picture");
-
-            // Use the data in your fragment as needed
-            ImageView ivProfile = view.findViewById(R.id.iv_profile);
-            Glide.with(this)
-                    .load(pictureUrl)
-                    .circleCrop()
-                    .into(ivProfile);
-
-            TextView tvEmail = view.findViewById(R.id.tv_email);
-            tvEmail.setText("Email " + email);
-
-            TextView tvName = view.findViewById(R.id.tv_name);  // Corrected the TextView ID
-            tvName.setText("Name " + name);
-        }
-
         return view;
     }
 }
